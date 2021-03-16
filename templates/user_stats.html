@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PakoGame</title>
+</head>
+<body>
+    {% if user.is_authenticated %}
+        <h3> Użytkownik: {{user.username}} </h3>
+        <p>Wytrzymałość: <strong>{{user.stats.endurance}}</strong> - ilość hp</p>
+        <p>Odporność: <strong>{{user.stats.resistance}}</strong> - pancerz</p>
+        <p>Siła: <strong>{{user.stats.strength}}</strong> - obrażenia, obrażenia krytyczne</p>
+        <p>Szybkość: <strong>{{user.stats.speed}}</strong> - częstotliwość ataków w turze </p>
+        <p>Zwinność: <strong>{{user.stats.agility}}</strong> - szansa na unik, na cios krytyczny</p>
+        <p>Siła Umysłu: <strong>{{user.stats.mind_power}}</strong></p>
+        <a href="/">Powrót </a>
+    {% endif %}
+</body>
+</html>

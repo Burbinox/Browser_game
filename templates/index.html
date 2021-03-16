@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PakoGame</title>
+</head>
+<body>
+    <h1>JESTEM GŁOWNA STRONA</h1>
+    {% if not user.is_authenticated %}
+        <div>Zaloguj się</div>
+    {% endif %}
+
+    {% if user.is_authenticated %}
+        <div> Zalogowany jesteś mistrzu </div>
+        <form action='logout' method='GET'>
+            <button type='Submit'> Logout </button>
+        </form>
+        <br>
+        <a href="user_stats/">Pokaz staty</a>
+        <br>
+    {% endif %}
+    <br>
+    {% if not user.is_authenticated %}
+        <form method="post">
+            {% csrf_token %}
+            <input type="text" name="username" placeholder="Username"><br>
+            <input type="password" name="password" placeholder="Password"><br>
+            <input type="Submit">
+        </form>
+        <br>
+        <a href="register/">Byczku rejestracja</a>
+        <br>
+    {% endif %}
+    <div>
+        {% for message in messages %}
+        <h3>{{message}}</h3>
+        {% endfor %}
+    </div>
+    <br>
+    <!--
+    <form action='show_all_object_from_db' method='GET'>
+        <button type='Submit'> Pokaż wszystkich użytkowników </button>
+    </form>
+    -->
+</body>
+</html>
